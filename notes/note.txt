@@ -1,0 +1,7 @@
+this is my djantgo project ofor my internshiop so here iam gonna see how to create we application and how to deploye this sit  fsormt he user nnise nsopor kkeiimma rkar ary arnkyy rtrree therwe is more then laste porject and i am happy to work with this amazing project so it we be gratefull to see there is two more oopt8in to take this side as you known this is very userfull for me for you and for everyone so lets see hoe t implement this kinds of error and how to deploye 
+first we have to create one project file than develop one app inside than link this created app into our new project how  to link this appp to me main projmect 
+
+STEP1 = simply go to  the setting.py which is present in the poejrect inside project file put it on the where all the apps are installed 
+STEP2 = after installing all this staf lest go to the mainr directoray to make sure that this main location whrer you have installed app 
+STEP3 = now all work is done so after that we have to ho to the urls.py which persent in the 
+first we have to create one urls.py file whicn is present in the app folder than we can do all function furder

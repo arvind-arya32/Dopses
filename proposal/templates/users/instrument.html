@@ -1,0 +1,117 @@
+{% extends "users/base.html" %}
+{% block title %}ProposalPage{% endblock title %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>dopses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=f3f5e3e0fd9b38313d60c6777e01a15a">
+</head>
+    
+
+    
+        
+
+    {% if user_form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    <!-- Start: 1 Row 2 Columns -->
+    <div class="container border rounded-0">
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-8 text-bg-light">
+                
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm">
+                      
+                        <li class="page-item"><a class="page-link" href="{% url 'users-proposal' %}">Cover Page</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'abstractPage'%}">Abstract Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'schedulingPage'%}">Scheduling Request</a></li>
+                      
+                      <li class="page-item disabled"><a class="page-link" href="{% url  'instrumentPage'%}">Instrument Setup</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'objectsPage'%}">List of Objects</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'observationPage'%}">Observation Strategy</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'attachmentsPage'%}">Attachments Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'publicationsPage'%}">Publications Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'previewPage'%}">Preview &amp; Submit</a></li>
+                      
+                    </ul>
+                </nav>
+                
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                <div class="p-3 py-5" style="padding-top: 64px;margin-top: -48px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Regular Proposal</h4>
+                    </div>
+                    <hr>
+        
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            
+                            <div class="form-group">
+                                
+                                
+                                    
+                                <label class="small mb-0"><h6>Observation mode:<span style="color: rgb(245, 20, 5);">*</span></h6></label>
+                                    {{ proposal_form.observation_mode }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary profile-button" type="submit">Save</button>
+                    <button class="btn btn-primary profile-button" type="reset">Reset</button>
+                </div>
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+            
+            </form>
+            
+            </div><!-- End: 1 Row 2 Columns -->
+                <div class="col-md-6 col-lg-4" style="background-color: #d0e4fc">
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <h3>Welcome to DFOT-OPSES</h3>
+                    <h6><em><span style="color: rgb(68, 155, 242);">Use the “SAVE” button at the bottom of each page to save its contents.
+
+                        All mandatory fields are marked using a “<span style="color: rgb(245, 20, 5);">*</span>” symbol.</span></em></h6>
+                    
+                    <strong>Tips</strong>
+                    <p></p>
+                    
+                    <ul>
+                    <b>The instruments currently available:: </b>
+                    <li>IMAGER</li>
+                    <li>ADFOSC</li>
+                    <li>TANSPEC</li>
+                    <li>TIRCAM 2</li>
+                    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- End: 1 Row 2 Columns -->
+
+
+{% endblock content %}

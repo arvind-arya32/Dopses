@@ -1,0 +1,167 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--Font awesome icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock %} </title>
+
+   
+<body> 
+  
+    <!-- Start: 1 Row 2 Columns -->
+    <div class="container">
+      <div class="col-sm-4 text-center">
+        <h1 style="margin-left:130px;font-size: 20px;">1.3M Devasthal Optical Telescope (DOT)</h1>
+      </div>
+      <div class="col-sm-4 text-center">
+        <h3 style="margin-left:230px;font-size: 15px; margin-top:0"> Proposal for Observations</h3>
+      </div>
+<hr>
+        <div class="row">
+            <div class="col-sm-6">
+              <p style="font-size:15px;float: left; width:45%"> To:<br />DOT-Time Allocation Committee (DOT-TAC),<span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Proposal Code: &nbsp; &nbsp;Dynamic value put here</span><br />Aryabhatta Research Institute of Observation Sciences <span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Cycle Code: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;{{ cycle_code }}</span><br />Manora Peak, Nainital-263002, INDIA<span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  Submitted On: &nbsp; &nbsp; &nbsp;Dynamic value put here</span><br/>E-mail:dtac@aries.res.in</p>
+            </div>
+           
+            <hr>
+    
+        </div>
+        <div class="col-sm-4 text-center " style="font-size: 15px;">
+          <ul>
+            <li>
+              <label for="">Principal Investigator (PI): &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span>{{profile.first_name}}</span></label>
+            </li>
+            <li>
+              <label for="">Affiliation: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>{{profile.affiliation_name}}</span></label>
+            </li>
+            <li>
+              <label for="">E-mail : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>{{profile.alternate_email_id}}</span></label>
+            </li>
+            <li>
+              <label for="">Telephone : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>{{profile.telephone_number}}</span></label>
+            </li>
+            <li>
+              <label for="">Adddress : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span>{{profile.address}}</span></label>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <hr>
+
+    <div>
+      <b><p style="font-size:20px">Proposal Category :</p></b>
+      <p style="font-size: 18px;">{{ proposal.proposal_category}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Proposal Title :</p></b>
+      <p style="font-size: 18px;">{{ proposal.proposal_title}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Proposal Type :</p></b>
+      <p style="font-size: 18px;">{{ proposal.proposal_type}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Target of Oppurtunity?</p></b>
+      <p style="font-size: 18px;">{{ proposal.target_opportunity}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Abstract :</p></b>
+      <p style="font-size: 18px;">{{ proposal.abstract}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Sheduling request :</p></b>
+      <p style="font-size: 18px;">{{ proposal.scheduling_request}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Observing time request :</p></b>
+      <p style="font-size: 18px;">{{ proposal.observing_time}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Preferred Dates :</p></b>
+      <p style="font-size: 18px;">{{ proposal.preferred_date}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Impossible Dates :</p></b>
+      <p style="font-size: 18px;">{{ proposal.impossible_date}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Justification for scheduling request :</p></b>
+      <p style="font-size: 18px;">{{ proposal.justification}}</p>
+    </div>
+ 
+    <div>
+      <b><p style="font-size:20px">Observation mode :</p></b>
+      <p style="font-size: 18px;">{{ proposal.observation_mode}}</p>
+    </div>
+    <div>
+      <table style="border-collapse: collapse; width: 100%;padding:4px" border="1">
+        <tbody>
+        <tr>
+        <td style="width: 12.5%;">Arvind;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        </tr>
+        <tr>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        </tr>
+        <tr>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        <td style="width: 12.5%;">&nbsp;</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Technical justification and observing strategy :</p></b>
+      <p style="font-size: 18px;">{{ proposal.tech_justify}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Plans for data reduction :</p></b>
+      <p style="font-size: 18px;">{{ proposal.plans}}</p>
+    </div>
+    <div>
+      <b><p style="font-size:20px">Scientific Justification:</p></b>
+      <img src=",{{ proposal.scientific_justify }}" alt='media/scientific_justification/download.pdf'>
+    </div>
+
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+ <!-- A plugin for password show/hide  -->
+ <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>    
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,343 @@
+{% extends "users/base.html" %}
+{% block title %}proposalPDF{% endblock title %}
+{% block content %}
+
+<!-- Page Container -->
+<div class="w3-container w3-content " style="max-width:1400px;margin-top:60px">    
+    <!-- The Grid -->
+    <div class="w3-row">      
+    
+        <!-- Left Column -->
+        <div class="w3-col m9" style="padding-right: 16px; padding-bottom: 16px;">     
+             
+            <div class="w3-card w3-bar-block w3-white w3-border">  
+               
+                <div class="w3-container w3-margin-bottom">
+                    <h4>Profile</h4>                        
+                    <hr class="w3-clear">
+                    
+                   
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-third">
+                            <label>Title <span style="color: red;">*</span></label>
+                            <select id="title" name="title" class="w3-select w3-border">
+                                <option value="" >Select title</option>
+                                <option value="Prof." >Prof.</option>
+                                <option value="Dr."  >Dr.</option>
+                                <option value="Mrs."  >Mrs.</option>
+                                <option value="Ms."  >Ms.</option>
+                                <option value="Mr."  >Mr.</option>
+                            </select>
+                                                        
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-third">
+                            <label>First Name <span style="color: red;">*</span></label>
+                            <input class="w3-input w3-border"
+                                 id="fname" name="fname"
+                                 type="text" value="" readonly> 
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-third">
+                            <label>Last Name</label>
+                          <input class="w3-input w3-border" 
+                                 id="lname" name="lname"
+                                 type="text" value="" readonly>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label>Email ID (primary) <span style="color: red;">*</span></label>
+                          <input class="w3-input w3-border"
+                                 id="email" name="email"
+                                 type="email" value="" readonly>
+                        </div>
+                        <div class="w3-half">
+                            <label>Alternate Email ID</label>
+                          <input class="w3-input w3-border"
+                                 id="alt_email_id" name="alt_email_id"
+                                 type="email" value="">
+                          <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>   
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label>Update Primary Email ID</label>
+                            <button type="button" id="updatePrimEmail" class="w3-button w3-border w3-theme-l3">+</button>
+                        </div>                        
+                    </div> 
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="updatePrimEmailModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header w3-theme-d2" style="padding:15px 20px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4> Update Primary Email-ID</h4>
+                                </div>
+                                <div class="modal-body" style="padding:40px 50px;"> 
+                                    <div class="row">
+                                        
+                                        <div id="response_message"> 
+                                            
+                                        </div>
+                                    </div>  
+                                      
+                                    <div class="form-group">
+                                        <label for="primaryEmailID"><span class="glyphicon glyphicon-envelope"></span> Email Address</label>
+                                        <input type="email" class="form-control" id="primaryEmailID"
+                                               name="update_priEmailID"
+                                               maxlength="60" placeholder="Enter an email address here" 
+                                               data-error="E-mail address is invalid." >
+                                        <div class="help-block with-errors"></div>
+                                         <br/><span id="primaryEmailID_charlim" style="color:red;"></span>     
+                                        
+                                    </div>
+                                    <button onclick="updateprimaryEmailID()" type="button" class="btn w3-theme-d1">Update</button>          
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
+                                        <span 	class="glyphicon glyphicon-remove"></span> Close </button>          
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> 
+                    
+                    
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label>Affiliation <span style="color: red;">*</span></label>
+                            <select class="w3-select w3-border"
+                                    id="affiliation" name="affiliation">
+                                <option value="">Select</option>                               
+                               
+                            </select>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>                        
+                        <div class="w3-half">
+                            <label>Designation <span style="color: red;">*</span> </label>
+                             <select class="w3-select w3-border"
+                                     id="designation" name="designation"> 
+                                <option value="">Select designation</option>
+                                <option value="Faculty/Academic" >Faculty/Academic</option>
+                                <option value="Postdoc"  >Postdoc</option>
+                                <option value="PhD student" >PhD student</option>
+                                <option value="Graduate student">Graduate student</option>
+                            </select>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label>Add affiliation if not listed </label>
+                            <button type="button" id="updateAffiliation" class="w3-button w3-border w3-theme-l3">+</button>
+                        </div>                        
+                    </div> 
+                    <div class="w3-row-padding">                                        
+                        <div id="affiliation_response_message">                                             
+                        </div>
+                    </div> 
+                    
+                     <!--Modal--> 
+                    <div class="modal fade" id="updateAffiliationModal" role="dialog">
+                        <div class="modal-dialog"
+                           
+                            <div class="modal-content">
+                                <div class="modal-header w3-theme-d2" style="padding:15px 20px;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4> Add Affiliation</h4>
+                                </div>
+                                <div class="modal-body" style="padding:40px 50px;"> 
+                                      
+                                    <div class="form-group">
+                                         
+                                        <label for="affiliation_name"><span class="fa fa-university"></span> Affiliation Name</label>
+                                        <input type="text" class="form-control" id="affiliation_name"
+                                               name="affiliation_name"
+                                               maxlength="255" placeholder="Enter affiliation name here" >
+                                        <label for="affiliation_code"> example: Indian Institute of Astrophysics, Bengaluru 
+                                        </label>
+                                        <br/>                                            
+                                         <button onclick="addAffiliation()" type="button"
+                                                 class="btn w3-theme-d1" data-dismiss="modal">Add</button> 
+                                    </div>
+                                             
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
+                                        <span 	class="glyphicon glyphicon-remove"></span> Close </button>          
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> 
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-third">
+                            <label>Address <span style="color: red;">*</span></label>
+                            <textarea class="w3-input w3-border" 
+                                      id="address" name="address"> </textarea>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-third">
+                            <label>Telephone Number </label>
+                            <input class="w3-input w3-border" 
+                                 id="telephone" name="telephone"
+                                 type="text" value="">
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-third">
+                            <label>Mobile Number</label>
+                            <input class="w3-input w3-border"
+                                 id="mobile_no" name="mobile_no"
+                                 type="text" value="">
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-quarter">
+                            <label>Country <span style="color: red;">*</span></label>
+                            <select class="w3-select w3-border"
+                                    id="country" name="country">                                    
+                              
+                            </select>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-quarter">
+                            <label>State</label>
+                            <select class="w3-select w3-border"
+                                    id="state" name="state">
+                                <option value="" disabled selected>Select state</option>
+                              
+                            </select>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                        <div class="w3-quarter">
+                            <label>City <span style="color: red;">*</span></label>
+                            <input class="w3-input w3-border"
+                                   id="city" name="city"
+                                   type="text" value="">
+                            <label style="color:red; font-size:small;"></label>
+                            
+                        </div>
+                        <div class="w3-quarter">
+                            <label>PIN (Postal Index Number) <span style="color: red;">*</span></label>
+                            <input class="w3-input w3-border"
+                                   id="pin_code" name="pin_code"
+                                   type="text" value="">
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <label>Research Interests <span style="color: red;">*</span></label>
+                            <select  id="research_interests" name="research_interests[]" 
+                                      multiple="multiple" class="selectpicker form-control required" 
+                                      data-size="5" data-max-options="5" data-live-search="true">                                                                
+                                
+                            </select> 
+                            <label style="color:red; font-size:small;"></label>
+                        </div>                        
+                        <div id="refereewill" class="w3-half">
+                            <label>Are you willing to act as a referee? <span style="color: red;">*</span> </label>
+                            <select class="w3-select w3-border"
+                                     id="referee_role" name="referee_role"> 
+                                <option value="" >Select</option>
+                                <option value="1" >Yes</option>
+                                <option value="0"  >No</option>  
+                            </select>
+                            <label style="color:red; font-size:small;"></label>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-row-padding">
+                        <div class="w3-half">
+                            <br>                            
+                            <button type="submit" class="w3-button w3-theme-d1 
+                            w3-margin-bottom w3-border"><i class="fa fa-save"></i>  Save </button>   
+                            
+                        </div> 
+                    </div>
+                    
+                </div>
+		
+            </div>
+          
+        <!-- End Left Column -->
+        </div>
+    
+        <!-- Right Column -->
+        <div class="w3-col m3">
+            <!-- Profile -->
+            <div class="w3-card w3-white w3-center w3-border">
+                <div class="w3-container">
+                    <h4>Welcome to DOPSES</h4>
+                    <p> Your Roles </p>
+                    <hr>
+                    <p>
+                        <?=$role_pi?>
+                        <?=$role_tc?>
+                        <?=$role_cc?>
+                        <?=$role_tm?>
+                        <?=$role_db?>
+                        <?=$role_sc?>
+                    </p>
+                </div>
+            </div>            
+            <!-- Alert Box -->                  
+            <div id="best_viewed_help" class="best_viewed_help
+                 w3-container w3-display-container 
+                w3-theme-l4 w3-border w3-theme-border"
+                style="text-align: justify; text-justify: auto;">
+                <span onclick="this.parentElement.style.display='none'"
+                      class="w3-button w3-theme-l3 w3-display-topright">
+                    <i class="fa fa-remove"></i>
+                </span>
+                <h6><i class="fa fa-info-circle"></i> Site Best Viewed</h6>
+                <p> This site is best viewed in <b>Google Chrome Version 72.0.3626.121</b> and above.</p>
+                
+            </div>
+      
+            <!-- Alert Box -->                  
+            <div id="cover_page_help" class="create_proposal_help
+                 w3-container w3-display-container 
+                w3-theme-l4 w3-border w3-theme-border w3-margin-bottom ">
+                <span onclick="this.parentElement.style.display='none'"
+                      class="w3-button w3-theme-l3 w3-display-topright">
+                    <i class="fa fa-remove"></i>
+                </span>
+                <h6><i class="fa fa-info-circle"></i> Tips</h6>
+                <p>Create a profile to use the DOT Online Proposal Submission and Evaluation System (DOPSES).</p>
+                <ul>
+                    <li><span style="color: red";>*</span> marked fields are mandatory.</li>
+                    <li>All communication will be made through the primary email id.</li>
+                    <li>You can update your primary email id by clicking on '+'.</li>   
+                    <li>If you are superannuated please use the affiliation from where you are superannuated.</li>
+                    <li>If your affiliation is not listed in the drop-down menu, click on the '+' icon and add your affiliation to the list.</li>
+                </ul>
+                
+            </div>
+      
+    
+        <!-- End Right Column -->
+        </div>
+    
+    <!-- End Grid -->
+    </div>
+  
+<!-- End Page Container -->
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>dopses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=f3f5e3e0fd9b38313d60c6777e01a15a">
+</head>
+
+<body>
+    <!-- Start: Navbar Right Links (Dark) -->
+    <nav class="navbar navbar-light navbar-expand-md bg-opacity-75 bg-primary-subtle py-3  shadow p-3 mb-5 bg-white rounded">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="{% url 'indexPage'%}"><span><strong>DFOT-OPSES</strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-5"><img src="{% static 'img/aries_logo_auto_6_3_1.png' %}" alt="Aries Logo" width="457" height="40">
+                <ul class="navbar-nav ms-auto mr-3">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'indexPage' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'manageProposalsPage' %}">Manage proposals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contactPage' %}">Contact</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">&nbsp;</a>
+                        <div class="dropdown-menu text-start border-2 shadow mr-3"><a class="dropdown-item" href="{% url 'profile' %}">My profile</a><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- End: Navbar Right Links (Dark) -->
+    
+    <!-- Start: 1 Row 2 Columns -->
+    <div class="container border rounded-0 shadow rounded">
+        <div class="row">
+            <div class="col-md-6 col-lg-8 text-bg-light">
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                <h4>DFOT Online Proposal Submission &amp; Evaluation System</h4><strong><br><span style="color: rgb(0, 44, 66);">1.3-m Devasthal Fast Optical Telescope</span><br><br></strong>
+                <p><br><span style="color: rgb(46, 43, 36);">A modern Ritchey-Chretien Cassegrain 1.3-m diameter Devasthal Fast Optical Telescope (DFOT) has been installed at Devasthal, Nainital by the DFM Engineering Inc. USA and run by Aryabhatta Research Institute of Observational Sciences (ARIES), an autonomous research institute under the Department of Science and Technology (DST), Government of India. It was inaugurated by Dr. T. Ramasami, Secretary, Department of Science &amp; Technology, Govt. of India on December 19,&nbsp;2010. Telescope is well suited for diverse science programs with small telescopes like detection and optical follow-up of transient events, deep imaging of star clusters, search and study of variable stars, extrasolar planets, milli-mag variability in AGN, Quasars and Blazers, and optical study of faint galaxies apart from many other science programs. DFOT is also available to national and international researchers to carry out cutting edge science programs in collaborative mode with ARIES scientists.</span><a href="https://www.aries.res.in/facilities/astronomical-telescopes/130cm-telescope">(more info...)</a></p>
+                <h5>DFOT Call for Proposals</h5>
+                <p>Current Cycle:&nbsp;<br>Regular Proposal submission last date:&nbsp;<br><a href="{% url 'guidelinesPage' %}">Regular Proposal</a><br><a href="{% url 'manageProposalsPage' %}">Edit / Withdraw</a><br></p>
+            </div>
+            <div class="col-md-6 col-lg-4" style="background-color: #d0e4fc">
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                <h3>Welcome to DFOT-OPSES</h3><strong>Tips</strong>
+                <p></p>
+                <ul>
+                    <li>Click on the "Regular Proposal" hyperlink to create a new proposal.</li>
+                    <li>Click on the "Edit/Withdraw" hyperlink to edit or withdraw a proposal under preparation. You can Edit or Withdraw the proposal by visiting "Manage Proposal" section.</li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- End: 1 Row 2 Columns -->
+    <!-- Start: Footer Clean -->
+    <footer class="text-center text-dark py-4 pt-lg-5 mt-lg-0 pt-xxl-5" style="padding-top: 105px;margin-top: -44px;padding-bottom: 0px;">
+        <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+        <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+        <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+        <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-3">
+                <div class="col-lg-12 text-dark">
+                    <p class="fs-5 text-start bg-primary-subtle shadow float-none my-2">DFOT-OPSES | Aryabhatta Research Institute of Observational Sciences (ARIES), Nainital</p>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End: Footer Clean -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js?h=6dac8d294ec5d11ebfbcf6a98f7a20a5"></script>
+</body>
+
+</html>

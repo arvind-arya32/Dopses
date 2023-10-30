@@ -1,0 +1,154 @@
+{% extends "users/base.html" %}
+{% block title %}ProposalPage{% endblock title %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>dopses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css?h=f3f5e3e0fd9b38313d60c6777e01a15a">
+</head>
+    
+
+    
+        
+
+    {% if user_form.errors %}
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in user_form.errors.items %}
+                    <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+    <!-- Start: 1 Row 2 Columns -->
+    <div class="container border rounded-0">
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-8 text-bg-light">
+                
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm">
+                    
+                      <li class="page-item disabled" ><a class="page-link" href="{% url 'users-proposal' %}">Cover Page</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'abstractPage' %}">Abstract Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'schedulingPage' %}">Scheduling Request</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'instrumentPage' %}">Instrument Setup</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'objectsPage' %}">List of Objects</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'observationPage' %}">Observation Strategy</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'attachmentsPage' %}">Attachments Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url  'publicationsPage'%}">Publications Details</a></li>
+                      <li class="page-item"><a class="page-link" href="{% url 'previewPage' %}">Preview &amp; Submit</a></li>
+                     
+                    </ul>
+                  </nav>
+                
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                <div class="p-3 py-5" style="padding-top: 64px;margin-top: -48px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Regular Proposal</h4>
+                    </div>
+                    <hr>
+        
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            
+                            <div class="form-group">
+                                
+                                <label class="small mb-0"><h6>Proposal Category:<span style="color: rgb(245, 20, 5);">*</span></h6></label>
+                                    {{ proposal_form.proposal_category }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>Proposal Title:<span style="color: rgb(245, 20, 5);">*</span></h6></label>
+                                    {{ proposal_form.proposal_title }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>Proposal Type:<span style="color: rgb(245, 20, 5);">*</span></h6></label>
+                                    {{ proposal_form.proposal_type }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>Target of Opportunity:<span style="color: rgb(245, 20, 5);">*</span></h6></label>
+                                    {{ proposal_form.target_opportunity }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>Co-Proposers:</h6></label>
+                                    {{ proposal_form.co_proposers }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>Co-PI among Co-Proposers:</h6></label>
+                                    {{ proposal_form.co_pi }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+
+                                <label class="small mb-0"><h6>PI/Co-PI/Co-I who will be present for observation:</h6></label>
+                                    {{ proposal_form.present_ob }}
+                                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                                
+                                
+
+                                
+
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary profile-button" type="submit" value="submit">Save</button>
+                    <button class="btn btn-primary profile-button" type="reset">Reset</button>
+                </div>
+                <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+            
+            </form>
+            
+            </div><!-- End: 1 Row 2 Columns -->
+                <div class="col-md-6 col-lg-4" style="background-color: #d0e4fc">
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <h3>Welcome to DFOT-OPSES</h3>
+                    <h6><em><span style="color: rgb(68, 155, 242);">Use the “SAVE” button at the bottom of each page to save its contents.
+
+                        All mandatory fields are marked using a "<span style="color: rgb(245, 20, 5);">* </span>" symbol.</span></em></h6>
+                    
+                    <strong>Tips</strong>
+                    <p></p>
+                    
+                    <ul>
+                    <b>Proposal Title: </b>
+                    <li>Provide an appropriate title for your proposal.</li>
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <b>Proposal Type: There are four options for this field.</b>
+                    <li>Long Term (new) are those proposals which require more than one observing cycle to complete. If it is a new proposal, choose  Long Term (new) option.</li>
+                    <li>Long Term (ongoing) is when the above proposal submitted again for the next or subsequent three cycles.</li>
+                    <li>Short Term are those proposals which are submitted for that particular cycle only.</li>
+                    <li>Thesis Proposals are those in which a PhD student is involved. If chosen, additional fields will appear in which proposer is required to provide information regarding the name of the student, expected year of the thesis submission, title of the thesis and a thesis summary.</li>
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <b>Co-Proposers: </b>
+                    <li>This is not a mandatory field.</li>
+                    <li>Select your co-proposer(s) from the drop-down list.</li>
+                    <li>The list contains the users who have successfully registered and created the profile by providing the mandatory information with the DOPSES.</li>
+                    <li>If name of your co-proposer(s) is not listed, please inform them to register and create the profile with the DOPSES. They are required to register only once with the DOPSES.</li>
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <b>Co-PI among Co-Proposers: </b>
+                    <li>Choose Co-PI among Co-Proposers selected from the Co-Proposers list.</li>
+                    <!-- Start: Simple Line BReak --><br><!-- End: Simple Line BReak -->
+                    <b>PI/Co-PI/Co-I who will be present for observations</b>
+                    <li>This list contains PI and all the Co-Proposers(if selected in the above-mentioned lists).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- End: 1 Row 2 Columns -->
+
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <ul>
+            {% for proposal in proposals %}
+            
+                <li>
+                    {{ proposal.title }} - {{ proposal.status }}
+                    
+                    {% if proposal.status == 'draft' %}
+                        <a href="{% url 'edit_proposal_form' proposal.id %}"><button class="btn btn-primary profile-button" type="submit">Edit Proposal</button></a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            <!-- appname/templates/proposals/proposal_list.html -->
+
+
+    
+{% endblock content %}
